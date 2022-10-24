@@ -12,15 +12,17 @@ public enum Items {
     public int getPrice() {
         return this.price;
     }
-    public int getId(){
+
+    public int getId() {
         return this.id;
     }
-    public static int valueOf(int itemSelected){
-       for (Items items:Items.values()){
-           if(itemSelected == items.id ){
-               return items.getPrice();
-           }
-       }
-       return itemSelected;
+
+    public static int valueOf(int itemSelected) {
+        for (Items items : Items.values()) {
+            if (itemSelected == items.id) {
+                return items.getPrice();
+            }
+        }
+        return itemSelected;
     }
 }

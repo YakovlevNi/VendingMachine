@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 public class MachineDisplay implements VendingMachine {
 
     private int selectItem;
+    Scanner password = new Scanner(System.in);
 
 
     @Override
@@ -30,12 +33,23 @@ public class MachineDisplay implements VendingMachine {
     }
 
     @Override
-    public void enterMoney(int money) {
+    public void enterCash(int money) {
         if (money >= Items.valueOf(this.selectItem)) {
             System.out.println("Вы внесли:" + money);
             int refund = money - Items.valueOf(this.selectItem);
             System.out.println("Ваша сдача:" + refund + "\n" + "Надеемся увидеть Вас снова!");
         } else System.out.println("Вам не хватает внесенных денег!");
+    }
+
+    @Override
+    public void enterCard() {
+        System.out.println("Cумма к оплате:" + Items.valueOf(this.selectItem));
+        System.out.println("Приложите карту и введите пароль");
+        int pin = password.nextInt();
+        boolean random = Math.random() > 0.5;
+        if (random == true) {
+            System.out.println("Операция одобрена!" + "\n" + "Надеемся увидеть Вас снова!");
+        } else System.out.println("На вашем счете недостаточно средств");
 
 
     }

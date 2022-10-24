@@ -5,7 +5,9 @@ public interface VendingMachine {
 
     void displayMoney();
 
-    void enterMoney(int money);
+    void enterCash(int money);
+
+    void enterCard();
 
 
 }
